@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="vbox-bar" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kaizen.DeepFocusModeController">
+   <left>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" styleClass="menu-panel" stylesheets="@stylesheet.css" BorderPane.alignment="CENTER">
+         <center>
+            <VBox prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ToggleButton fx:id="kanbanBoard" mnemonicParsing="false" onAction="#handleKanbanBoard" prefHeight="50.0" prefWidth="200.0" styleClass="menu-toggle" stylesheets="@stylesheet.css" text="KANBAN BOARD" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" styleClass="current-menu-toggle" stylesheets="@stylesheet.css" text="DEEP FOCUS" />
+                  <ToggleButton fx:id="taskTracker" mnemonicParsing="false" onAction="#handleTaskTracker" prefHeight="50.0" prefWidth="200.0" styleClass="menu-toggle" stylesheets="@stylesheet.css" text="TASK TRACKER" />
+                  <ToggleButton fx:id="timeDashboard" mnemonicParsing="false" onAction="#handleTimeDashboard" prefHeight="50.0" prefWidth="200.0" styleClass="menu-toggle" stylesheets="@stylesheet.css" text="TIME DASHBOARD" />
+                  <ToggleButton fx:id="dailyLearnings" mnemonicParsing="false" onAction="#handleDailyLearnings" prefHeight="50.0" prefWidth="200.0" styleClass="menu-toggle" stylesheets="@stylesheet.css" text="DAILY LEARNINGS" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+            </VBox>
+         </center>
+         <bottom>
+            <VBox prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ToggleButton fx:id="about" mnemonicParsing="false" onAction="#handleAboutScreen" prefHeight="50.0" prefWidth="200.0" styleClass="menu-toggle" stylesheets="@stylesheet.css" text="ABOUT" />
+                  <ToggleButton fx:id="settings" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleSettings" prefHeight="50.0" prefWidth="200.0" styleClass="menu-toggle" stylesheets="@stylesheet.css" text="SETTINGS" />
+                  <Button fx:id="signOut" mnemonicParsing="false" onAction="#handleSignOut" prefHeight="50.0" prefWidth="200.0" styleClass="menu-toggle" stylesheets="@stylesheet.css" text="REPORT ERROR" />
+               </children></VBox>
+         </bottom>
+         <top>
+            <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" styleClass="border-bar" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@Resources/Kaizen%20Innovations%20(All%20White).png" />
+               </image>
+            </ImageView>
+         </top>
+      </BorderPane>
+   </left>
+   <right>
+      <Pane prefHeight="200.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fx:id="backgroundImage" fitHeight="720.0" fitWidth="1080.0" opacity="0.6" pickOnBounds="true" />
+            <Label layoutX="20.0" layoutY="20.0" prefHeight="50.0" prefWidth="330.0" styleClass="large-label" stylesheets="@stylesheet.css" text="It's time to focus." />
+            <Label layoutX="20.0" layoutY="70.0" prefHeight="40.0" prefWidth="400.0" styleClass="small-label" stylesheets="@stylesheet.css" text="Choose a task, set the mood and focus." />
+            <Separator layoutX="50.0" layoutY="195.0" prefHeight="2.0" prefWidth="980.0" style="-fx-background-color: 000000;" stylesheets="@stylesheet.css" />
+            <Separator layoutX="539.0" layoutY="145.0" orientation="VERTICAL" prefHeight="40.0" prefWidth="1.0" stylesheets="@stylesheet.css" />
+            <Separator layoutX="539.0" layoutY="203.0" orientation="VERTICAL" prefHeight="480.0" prefWidth="1.0" stylesheets="@stylesheet.css" />
+            <ImageView fitHeight="40.0" fitWidth="471.0" layoutX="559.0" layoutY="145.0" pickOnBounds="true" style="-fx-opacity: 0.9;" styleClass="menu-panel">
+               <image>
+                  <Image url="@Resources/mood-toggle-background.png" />
+               </image>
+            </ImageView>
+            <ToggleButton fx:id="moodOne" layoutX="559.0" layoutY="145.0" mnemonicParsing="false" onAction="#handleMoodOne" prefHeight="40.0" prefWidth="157.0" styleClass="mood-toggle" stylesheets="@stylesheet.css" text="Gentle Piano" />
+            <ToggleButton fx:id="moodTwo" layoutX="716.0" layoutY="145.0" mnemonicParsing="false" onAction="#handleMoodTwo" prefHeight="40.0" prefWidth="157.0" styleClass="mood-toggle" stylesheets="@stylesheet.css" text="Café Jazz" />
+            <ToggleButton fx:id="moodThree" layoutX="873.0" layoutY="145.0" mnemonicParsing="false" onAction="#handleMoodThree" prefHeight="40.0" prefWidth="157.0" styleClass="mood-toggle" stylesheets="@stylesheet.css" text="Folk Guitar" />
+            <Label layoutX="50.0" layoutY="105.0" prefHeight="40.0" prefWidth="195.0" styleClass="small-label" stylesheets="@stylesheet.css" text="Select Task Category" />
+            <Label layoutX="265.0" layoutY="110.0" prefHeight="40.0" prefWidth="195.0" styleClass="small-label" stylesheets="@stylesheet.css" text="Select Task" />
+            <Label layoutX="559.0" layoutY="110.0" prefHeight="40.0" prefWidth="196.0" styleClass="small-label" stylesheets="@stylesheet.css" text="Select Mood" />
+            <ChoiceBox fx:id="selectTaskCategory" layoutX="50.0" layoutY="145.0" prefHeight="40.0" prefWidth="195.0" styleClass="c-boxes" stylesheets="@stylesheet.css" />
+            <ChoiceBox fx:id="selectTask" layoutX="265.0" layoutY="145.0" onMouseEntered="#getTaskChoice" prefHeight="40.0" prefWidth="195.0" styleClass="c-boxes" stylesheets="@stylesheet.css" />
+            <Circle fill="#1f93ff00" layoutX="795.0" layoutY="430.0" radius="162.0" stroke="BLACK" strokeType="INSIDE" styleClass="clock-background" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4f4f4" height="42.0" layoutX="755.0" layoutY="566.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="80.0" />
+            <Label fx:id="displayTime1" layoutX="620.0" layoutY="320.0" prefHeight="100.0" prefWidth="350.0" styleClass="timeIs" stylesheets="@stylesheet.css" text="THE TIME IS" />
+            <Label fx:id="displayTime" layoutX="620.0" layoutY="393.0" prefHeight="100.0" prefWidth="350.0" styleClass="time-display" stylesheets="@stylesheet.css" />
+            <Label fx:id="displayMoonPhase" layoutX="620.0" layoutY="533.0" prefHeight="100.0" prefWidth="350.0" styleClass="timeIs" stylesheets="@stylesheet.css" />
+            <Button fx:id="button" layoutX="480.0" layoutY="145.0" mnemonicParsing="false" onAction="#getTaskText" prefHeight="40.0" prefWidth="40.0" styleClass="getText_button" stylesheets="@stylesheet.css" text="Button" />
+            <Label layoutX="50.0" layoutY="205.0" prefHeight="40.0" prefWidth="200.0" styleClass="small-label" stylesheets="@stylesheet.css" text="Task Title" />
+            <Label layoutX="50.0" layoutY="285.0" prefHeight="40.0" prefWidth="200.0" styleClass="small-label" stylesheets="@stylesheet.css" text="Task Description" />
+            <Label fx:id="catchLabel" layoutX="270.0" layoutY="145.0" prefHeight="40.0" prefWidth="163.0" styleClass="small-label" />
+            <Label fx:id="secondsDisplay" layoutX="620.0" layoutY="442.0" prefHeight="100.0" prefWidth="350.0" styleClass="seconds-display" stylesheets="@stylesheet.css" />
+            <TextArea fx:id="displayTitle" editable="false" layoutX="50.0" layoutY="245.0" maxHeight="40.0" minHeight="40.0" prefHeight="40.0" prefWidth="469.0" styleClass="input-field-big" />
+            <TextArea fx:id="displayDescription" editable="false" layoutX="50.0" layoutY="325.0" prefHeight="357.0" prefWidth="469.0" styleClass="input-field-big" wrapText="true">
+               <padding>
+                  <Insets top="1.0" />
+               </padding>
+            </TextArea>
+         </children>
+      </Pane>
+   </right>
+</BorderPane>

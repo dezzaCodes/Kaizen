@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="vbox-bar" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kaizen.SettingsController">
+   <left>
+      <BorderPane prefHeight="720.0" prefWidth="0.0" styleClass="menu-panel" stylesheets="@stylesheet.css" BorderPane.alignment="CENTER">
+         <center>
+            <VBox prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ToggleButton fx:id="kanbanBoard" mnemonicParsing="false" onAction="#handleKanbanBoard" prefHeight="50.0" prefWidth="200.0" styleClass="menu-toggle" stylesheets="@stylesheet.css" text="KANBAN BOARD" />
+                  <ToggleButton fx:id="deepFocus" mnemonicParsing="false" onAction="#handleDeepFocus" prefHeight="50.0" prefWidth="200.0" styleClass="menu-toggle" stylesheets="@stylesheet.css" text="DEEP FOCUS" />
+                  <ToggleButton fx:id="taskTracker" mnemonicParsing="false" onAction="#handleTaskTracker" prefHeight="50.0" prefWidth="200.0" styleClass="menu-toggle" stylesheets="@stylesheet.css" text="TASK TRACKER" />
+                  <ToggleButton fx:id="timeDashboard" mnemonicParsing="false" onAction="#handleTimeDashboard" prefHeight="50.0" prefWidth="200.0" styleClass="menu-toggle" stylesheets="@stylesheet.css" text="TIME DASHBOARD" />
+                  <ToggleButton fx:id="dailyLearnings" mnemonicParsing="false" onAction="#handleDailyLearnings" prefHeight="50.0" prefWidth="200.0" styleClass="menu-toggle" stylesheets="@stylesheet.css" text="DAILY LEARNINGS" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+            </VBox>
+         </center>
+         <bottom>
+            <VBox prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ToggleButton fx:id="settingsButton" mnemonicParsing="false" onAction="#handleSettings" prefHeight="50.0" prefWidth="200.0" styleClass="menu-toggle" stylesheets="@stylesheet.css" text="ABOUT" />
+                  <ToggleButton layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" styleClass="current-menu-toggle" stylesheets="@stylesheet.css" text="SETTINGS" />
+                  <Button fx:id="signOutButtons" mnemonicParsing="false" onAction="#handleSignOut" prefHeight="50.0" prefWidth="200.0" styleClass="menu-toggle" stylesheets="@stylesheet.css" text="REPORT ERROR" />
+               </children></VBox>
+         </bottom>
+         <top>
+            <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" styleClass="border-bar" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@Resources/Kaizen%20Innovations%20(All%20White).png" />
+               </image>
+            </ImageView>
+         </top>
+      </BorderPane>
+   </left>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="274.0" layoutX="44.0" layoutY="422.0" stroke="BLACK" strokeType="INSIDE" width="948.0" />
+            <Label layoutX="52.0" layoutY="29.0" styleClass="large-label" text="Settings" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="284.0" layoutX="44.0" layoutY="109.0" stroke="BLACK" strokeType="INSIDE" width="473.0" />
+            <Label layoutX="113.0" layoutY="136.0" styleClass="small-label" text="Edit Categories" />
+            <TableView fx:id="catView" layoutX="95.0" layoutY="175.0" prefHeight="194.0" prefWidth="286.0">
+              <columns>
+                <TableColumn fx:id="IDClm" editable="false" minWidth="0.0" prefWidth="2.0" resizable="false" text="ID" visible="false" />
+                <TableColumn fx:id="categoryClm" prefWidth="156.39968872070312" resizable="false" text="Category" />
+                  <TableColumn fx:id="colourClm" prefWidth="128.60028076171875" resizable="false" text="Colour" />
+              </columns>
+            </TableView>
+            <Button fx:id="deleteButton" layoutX="420.0" layoutY="329.0" mnemonicParsing="false" onAction="#deleteData" prefHeight="27.0" prefWidth="62.0" text="Delete" />
+            <Button fx:id="editButton" layoutX="420.0" layoutY="269.0" mnemonicParsing="false" onAction="#editData" text="Update" />
+            <Button fx:id="addButton" layoutX="420.0" layoutY="209.0" mnemonicParsing="false" onAction="#handlePopUpAddCategory" prefHeight="27.0" prefWidth="62.0" text="Add" />
+            <Label fx:id="status" layoutX="274.0" layoutY="130.0" prefHeight="36.0" prefWidth="103.0" text="Label" wrapText="true" />
+            <Button fx:id="report" layoutX="790.0" layoutY="442.0" mnemonicParsing="false" onAction="#handleReportBug" prefHeight="27.0" prefWidth="127.0" text="Report a bug" />
+            <TableView fx:id="errorsView" layoutX="94.0" layoutY="481.0" prefHeight="185.0" prefWidth="824.0">
+               <columns>
+                  <TableColumn fx:id="errorIDClm" editable="false" minWidth="0.0" prefWidth="2.0" resizable="false" text="ID" visible="false" />
+                  <TableColumn fx:id="errorDateClm" prefWidth="68.83090209960938" resizable="false" text="Date" />
+                  <TableColumn fx:id="errorNameClm" prefWidth="191.90719604492188" text="Error" />
+                  <TableColumn fx:id="errorPageClm" prefWidth="139.0927734375" text="Location" />
+                  <TableColumn fx:id="errorDescClm" prefWidth="423.69305419921875" text="Description" />
+               </columns>
+            </TableView>
+            <Label layoutX="119.0" layoutY="445.0" styleClass="small-label" text="History of Bugs" />
+            <Button fx:id="help" layoutX="449.0" layoutY="122.0" mnemonicParsing="false" onAction="#handleHelp" text="Help?">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
